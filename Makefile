@@ -46,6 +46,11 @@ build-docker: $(patsubst %, build-docker-%, ${DOCKER_IMAGES})
 
 clean-docker-%:
 	@docker image rm -f ${DOCKER_IMGNAME}-$*
+	@docker image rm -f koalaman/shellcheck
 
 .PHONY: clean-docker
 clean-docker: $(patsubst %, clean-docker-%, ${DOCKER_IMAGES})
+
+.PHONY: verify
+verify:
+	@docker run --rm -v "$${PWD}:/mnt" koalaman/shellcheck:stable -f gcc pkginst.sh
