@@ -8,8 +8,11 @@ The script expects a list of packages to install in a specific format, because
 it does not do any conversion between package names between distributions.
 
 For example, the utility [fd](https://github.com/sharkdp/fd) is named differently:
+
 On Ubuntu, the binary is `fdfind` while the package is called `fd-find`.
+
 On Arch Linux, both the binary and the package is called `fd`.
+
 To install `fd` on either:
 ```sh
 ./pkginst.sh "{fd,fdfind}:{fd,fd-find}"
