@@ -1,0 +1,19 @@
+# vim: ft=dockerfile
+FROM fedora
+
+ARG _USER
+
+WORKDIR /tmp
+
+USER root
+
+RUN echo 'Europe/Stockholm' | tee /etc/timezone
+RUN echo 'test' | tee /etc/hostname
+RUN dnf upgrade -y && dnf install -y sudo
+
+RUN useradd $_USER && \
+        mkdir -p /home/$_USER && \
+        chown $_USER:$_USER /home/$_USER && \
+        echo "$_USER ALL=(ALL:ALL) NOPASSWD: ALL" >> /etc/sudoers
+
+USER $_USER

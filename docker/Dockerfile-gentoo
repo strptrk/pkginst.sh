@@ -1,0 +1,29 @@
+# vim: ft=dockerfile
+FROM gentoo/stage3
+
+ARG _USER
+
+WORKDIR /tmp
+
+USER root
+
+# prefer binary packages to shorten test duration
+RUN echo 'Europe/Stockholm' | tee /etc/timezone && \
+    echo 'test' | tee /etc/hostname && \
+    echo 'FEATURES="${FEATURES} getbinpkg -ipc-sandbox -network-sandbox -pid-sandbox"' | tee -a /etc/portage/make.conf && \
+    mkdir -p /etc/portage/binrepos.conf/ && \
+        printf "%s\n%s\n%s\n" \
+        '[binhost]' \
+        'priority = 9999' \
+        'sync-uri = https://distfiles.gentoo.org/releases/amd64/binpackages/23.0/x86-64/' | \
+        tee -a /etc/portage/binrepos.conf/gentoobinhost.conf
+
+RUN getuto && emerge --sync
+RUN emerge --ask n --update --deep @world && emerge --ask n app-admin/sudo app-portage/gentoolkit
+
+RUN useradd $_USER && \
+        mkdir -p /home/$_USER && \
+        chown $_USER:$_USER /home/$_USER && \
+        echo "$_USER ALL=(ALL:ALL) NOPASSWD: ALL" >> /etc/sudoers
+
+USER $_USER

@@ -1,0 +1,19 @@
+# vim: ft=dockerfile
+FROM ubuntu
+
+ARG _USER
+
+WORKDIR /tmp
+
+USER root
+
+RUN echo 'Europe/Stockholm' | tee /etc/timezone
+RUN echo 'test' | tee /etc/hostname
+RUN apt update -y && apt upgrade -y && apt install -y sudo
+
+RUN useradd $_USER && \
+        mkdir -p /home/$_USER && \
+        chown $_USER:$_USER /home/$_USER && \
+        echo "$_USER ALL=(ALL:ALL) NOPASSWD: ALL" >> /etc/sudoers
+
+USER $_USER

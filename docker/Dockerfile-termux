@@ -1,0 +1,13 @@
+# vim: ft=dockerfile
+FROM termux/termux-docker
+
+USER system
+
+ENV TERM=xterm-256color
+
+RUN echo 'deb https://mirror.accum.se/mirror/termux.dev/termux-main stable main' | \
+        tee -a /data/data/com.termux/files/usr/etc/apt/sources.list
+
+RUN ln -sfv "/data/data/com.termux/files/usr/etc/termux/mirrors/europe" "/data/data/com.termux/files/usr/etc/termux/chosen_mirrors"
+
+RUN pkg --check-mirror update -y && pkg upgrade -y

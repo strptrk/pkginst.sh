@@ -1,0 +1,20 @@
+# vim: ft=dockerfile
+FROM archlinux
+
+ARG _USER
+
+WORKDIR /tmp
+
+USER root
+
+RUN echo 'Europe/Stockholm' | tee /etc/timezone
+RUN echo 'test' | tee /etc/hostname
+RUN pacman --noconfirm -Syu && pacman -S --noconfirm sudo
+
+RUN useradd $_USER && \
+        mkdir -p /home/$_USER && \
+        chown $_USER:$_USER /home/$_USER && \
+        echo "$_USER ALL=(ALL:ALL) NOPASSWD: ALL" >> /etc/sudoers
+
+USER $_USER
+RUN sudo pacman --noconfirm -Syu
