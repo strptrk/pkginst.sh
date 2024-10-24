@@ -66,4 +66,4 @@ make clean-docker
 ```
 
 # Contributing
-I wrote this for myself, so prefer pull requests to simple feature requests :)
+I wrote this for myself, so prefer pull requests to feature requests :)

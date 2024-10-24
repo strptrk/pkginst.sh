@@ -10,12 +10,12 @@ TEST_PKGS := 'nvim:neovim' \
 			 'tree-sitter:{tree-sitter,tree-sitter-cli}' \
 			 'cmake'
 
-TEST_VERBOSITY ?= -v
+VERBOSITY ?= -v
 
 test-%:
 	@echo ">>> RUNNING $*"
 	@docker run -it -v $${PWD}:$${PWD} --workdir $${PWD} ${DOCKER_IMGNAME}-$* \
-		sh -c "./pkginst.sh ${TEST_VERBOSITY} ${TEST_PKGS}"
+		sh -c "./pkginst.sh ${VERBOSITY} ${TEST_PKGS}"
 
 
 .PHONY: test
