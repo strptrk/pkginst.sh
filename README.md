@@ -23,6 +23,11 @@ Any number of targets can be specified:
 ./pkginst.sh "{fd,fdfind}:{fd,fd-find}" "rg:ripgrep" "cmake"
 ```
 
+To run the script without downloading:
+```sh
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/strptrk/pkginst.sh/main/pkginst.sh)" pkginst.sh -vv "{fd,fdfind}:{fd,fd-find}" "rg:ripgrep" "cmake"
+```
+
 ## Package specification
 
 For each package argument, the script is going to check if the package is installed,
