@@ -1,11 +1,11 @@
 # What does this do?
 
-The purpose of this script is to make it easier to quickly install a set of packages on various distributions.
+The purpose of `pkginst.sh` is to make it easier to quickly install a set of packages on various distributions.
 Originally intended to be included in dotfiles repositories.
 
 # Usage
 The script expects a list of packages to install in a specific format, because
-it does not do any conversion between package names between distributions.
+it does not do any conversion of package names between distributions.
 
 For example, the utility [fd](https://github.com/sharkdp/fd) is named differently:
 
