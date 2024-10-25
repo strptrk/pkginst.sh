@@ -40,7 +40,7 @@ Checking if the package is installed can be done with using either the executabl
 | `pkg` | the script will check if `pkg` is installed and attempt to install it in case it isn't. |
 | `{pkg1,pkg2...}` | the script will check if `pkg1` is installed and attempt to install it in case it isn't, but keep trying with `pkg2` ... and so on if the installation fails. |
 | `bin:pkg` | the script will check if `bin` can be run and to install `pkg` in case it cannot be. |
-| `bin:{pkg1,pkg2,...}` | the script will check if `bin` can be run and to install `pkg` in case it cannot be, but keep trying with `pkg2` ... and so on if the installation fails. |
+| `bin:{pkg1,pkg2,...}` | the script will check if `bin` can be run and to install `pkg1` in case it cannot be, but keep trying with `pkg2` ... and so on if the installation fails. |
 | `{bin1,bin2,...}:pkg` | the script will check if any of `bin1`, `bin2`, ... can be run and attempt to install `pkg` in case none of them can be. |
 | `{bin1,bin2,...}:{pkg1,pkg2,...}` | the script will check if any of `bin1`, `bin2`, ... can be run and attempt to install `pkg1`, `pkg2`, ... in case none of them can be. |
 

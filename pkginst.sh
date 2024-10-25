@@ -44,7 +44,7 @@ Packages:
     - 2: "{pkg1,pkg2...}": the script will check if "pkg1" is installed and attempt to install it in case it isn't,
         but keep trying with "pkg2" ... and so on if the installation fails.
     - 3: "bin:pkg": the script will check if "bin" can be run and to install "pkg" in case it cannot be.
-    - 4: "bin:{pkg1,pkg2,...}": the script will check if "bin" can be run and to install "pkg" in case it cannot be,
+    - 4: "bin:{pkg1,pkg2,...}": the script will check if "bin" can be run and to install "pkg1" in case it cannot be,
         but keep trying with "pkg2" ... and so on if the installation fails.
     - 5: "{bin1,bin2,...}:pkg": the script will check if any of "bin1", "bin2", ... can be run and attempt to install "pkg" in case none of them can be.
     - 6: "{bin1,bin2,...}:{pkg1,pkg2,...}": the script will check if any of "bin1", "bin2", ... can be run
