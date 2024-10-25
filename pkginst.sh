@@ -40,15 +40,15 @@ Packages:
     and in case it is not, it will attempt to install it.
 
     Checking if the package is installed can be done with using either the executable name or the package name.
-    - 1: package_name: the script will check if package_name is installed and attempt to install it in case it isn't.
-    - 2: {package_name1,package_name2...}: the script will check if package_name1 is installed and attempt to install it in case it isn't,
-        but keep trying with package_name2 ... and so on if the installation fails.
-    - 3: executable:package_name: the script will check if executable can be run and to install package_name in case it cannot be.
-    - 4: executable:{package_name1,package_name2,...}: the script will check if executable can be run and to install package_name in case it cannot be,
-        but keep trying with package_name2 ... and so on if the installation fails.
-    - 5: {executable1,executable2,...}:package_name: the script will check if any of executable1, executable2, ... can be run and attempt to install package_name in case none of them can be.
-    - 6: {executable1,executable2,...}:{package_name1,package_name2,...}: the script will check if any of executable1, executable2, ... can be run
-        and attempt to install package_name1, package_name2, ... in case none of them can be.
+    - 1: "pkg": the script will check if "pkg" is installed and attempt to install it in case it isn't.
+    - 2: "{pkg1,pkg2...}": the script will check if "pkg1" is installed and attempt to install it in case it isn't,
+        but keep trying with "pkg2" ... and so on if the installation fails.
+    - 3: "bin:pkg": the script will check if "bin" can be run and to install "pkg" in case it cannot be.
+    - 4: "bin:{pkg1,pkg2,...}": the script will check if "bin" can be run and to install "pkg" in case it cannot be,
+        but keep trying with "pkg2" ... and so on if the installation fails.
+    - 5: "{bin1,bin2,...}:pkg": the script will check if any of "bin1", "bin2", ... can be run and attempt to install "pkg" in case none of them can be.
+    - 6: "{bin1,bin2,...}:{pkg1,pkg2,...}": the script will check if any of "bin1", "bin2", ... can be run
+        and attempt to install "pkg1", "pkg2", ... in case none of them can be.
 
     Examples:
         ${__NAME__} "{fd,fdfind}:{fd,fd-find}"

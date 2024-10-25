@@ -37,12 +37,12 @@ Checking if the package is installed can be done with using either the executabl
 
 | Format  | Description |
 | ------------- | ------------- |
-| `package_name` | the script will check if `package_name` is installed and attempt to install it in case it isn't. |
-| `{package_name1,package_name2...}` | the script will check if `package_name1` is installed and attempt to install it in case it isn't, but keep trying with `package_name2` ... and so on if the installation fails. |
-| `executable:package_name` | the script will check if `executable` can be run and to install `package_name` in case it cannot be. |
-| `executable:{package_name1,package_name2,...}` | the script will check if `executable` can be run and to install `package_name` in case it cannot be, but keep trying with `package_name2` ... and so on if the installation fails. |
-| `{executable1,executable2,...}:package_name` | the script will check if any of `executable1`, `executable2`, ... can be run and attempt to install `package_name` in case none of them can be. |
-| `{executable1,executable2,...}:{package_name1,package_name2,...}` | the script will check if any of `executable1`, `executable2`, ... can be run and attempt to install `package_name1`, `package_name2`, ... in case none of them can be. |
+| `pkg` | the script will check if `pkg` is installed and attempt to install it in case it isn't. |
+| `{pkg1,pkg2...}` | the script will check if `pkg1` is installed and attempt to install it in case it isn't, but keep trying with `pkg2` ... and so on if the installation fails. |
+| `bin:pkg` | the script will check if `bin` can be run and to install `pkg` in case it cannot be. |
+| `bin:{pkg1,pkg2,...}` | the script will check if `bin` can be run and to install `pkg` in case it cannot be, but keep trying with `pkg2` ... and so on if the installation fails. |
+| `{bin1,bin2,...}:pkg` | the script will check if any of `bin1`, `bin2`, ... can be run and attempt to install `pkg` in case none of them can be. |
+| `{bin1,bin2,...}:{pkg1,pkg2,...}` | the script will check if any of `bin1`, `bin2`, ... can be run and attempt to install `pkg1`, `pkg2`, ... in case none of them can be. |
 
 ## Options
 - -h: Display help page.
